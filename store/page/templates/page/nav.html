@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'style/nav.css'%}">
+{%block css%}
+{%endblock%}
+</head>
+<body>
+
+    
+    <nav class="navbar">
+        <img src="{%static 'img/default/logo.png'%}" class="logo">
+        <div class="nav-items">
+            <a href="{% url 'home'%}">Home</a>
+            <a href="{% url 'market'%}">Market</a>
+            <a href="#">Inbox</a>
+            <a href="#">Login</a>
+        </div>
+    </nav>
+{%block body%}
+{%endblock%}
+</body>
+</body>

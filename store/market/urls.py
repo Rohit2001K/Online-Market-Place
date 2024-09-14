@@ -1,8 +1,10 @@
 from django.urls import path
 from . import views
 
-#Home page urls
+
+
+#market urls
 
 urlpatterns=[
-    path('',views.home_page,name='home')
+    path('',views.market_page,name='market')
 ]

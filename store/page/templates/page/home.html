@@ -1,7 +1,20 @@
-<!DOCTYPE html>
-<head>
+{% extends 'page/nav.html'%}
+{% load static %}
+{%block css%}
+<link rel="stylesheet" href="{% static 'style/home.css'%}">
+{%endblock%}
+{%block body%}
 
-</head>
-<body>
-    <h1>Welcome to marketplace</h1>
-</body>
+<div class="ad1">
+    <p class="p1">Buy Whatever you<br> Like!</p>
+    <img src="{%static 'img/default/home_pic.png'%}" class="img1">
+</div>
+<div class="ad2">
+    
+    <img src="{%static 'img/default/home_img2.png'%}" class="img2">
+    <p class="p2">Sell Whatever you <br>Want</p>
+
+</div>
+
+
+{%endblock%}

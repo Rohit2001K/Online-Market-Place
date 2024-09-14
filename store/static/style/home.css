@@ -1,0 +1,102 @@
+
+.ad1 .img1 {
+    float: right;
+    height: 60vh;
+    width: 50vw;
+    padding-top: 15vh;
+}
+
+.ad1 .p1 {
+    position: relative;
+    padding-top: 20vh;
+    margin-left: 5vw;
+    font-size: 5vw;
+    float: left;
+}
+
+.ad2 .img2 {
+    padding-top: 40vh;
+    float: left;
+    height: 60vh;
+    margin-left: 8vw;
+    width: 30vw;
+}
+
+.ad2 .p2 {
+    padding-right: 4vw;
+    padding-top: 30vh;
+    font-size: 5vw;
+    float: right;
+}
+
+
+@media (max-width: 1024px) {
+    .ad1 .img1,
+    .ad2 .img2 {
+        height: 50vh;
+        width: 40vw;
+    }
+
+    .ad1 .p1,
+    .ad2 .p2 {
+        font-size: 4vw;
+    }
+
+    .ad1 .p1 {
+        margin-left: 3vw;
+        padding-top: 15vh;
+    }
+
+    .ad2 .p2 {
+        padding-right: 3vw;
+        padding-top: 20vh;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .ad1 .img1,
+    .ad2 .img2 {
+        height: 40vh;
+        width: 80vw;
+        padding-top: 10vh;
+    }
+
+    .ad1 .p1,
+    .ad2 .p2 {
+        font-size: 6vw;
+        padding-top: 10vh;
+    }
+
+    .ad1 .p1 {
+        margin-left: 2vw;
+    }
+
+    .ad2 .p2 {
+        padding-right: 2vw;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .ad1 .img1,
+    .ad2 .img2 {
+        height: 30vh;
+        width: 90vw;
+        padding-top: 5vh;
+    }
+
+    .ad1 .p1,
+    .ad2 .p2 {
+        font-size: 7vw;
+        padding-top: 5vh;
+    }
+
+    .ad1 .p1 {
+        margin-left: 1vw;
+    }
+
+    .ad2 .p2 {
+        padding-right: 1vw;
+    }
+}
