@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style/signup.css' %}">
+    <title>Sign Up</title>
+</head>
+<body>
+    <div class="main-container">
+        <div class="image-container">
+            <img src="{% static 'img/default/logo.png' %}" alt="Logo">
+        </div>
+        <div class="form-container">
+            <h1>Sign Up</h1>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.username }}
+                {{ form.email }}
+                {{ form.password1 }}
+                {{ form.password2 }}
+                <input type="submit" value="Create Account">
+            </form>
+            <div class="signup-link">
+                <p>Already have an account? <a href="{% url 'login_user' %}">Login</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
