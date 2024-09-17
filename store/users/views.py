@@ -1,9 +1,11 @@
 from django.shortcuts import render,redirect
-from .forms import User_creation
+from .forms import User_creation,edit_user_form
 from django.contrib.auth import login,authenticate,logout
 from django.contrib.auth.models import User
 from .models import Profile
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 # Create your views here.
 
 #user creation
@@ -16,6 +18,7 @@ def add_user(request):
             user.username=user.username.lower()
             user.save()
             login(request,user)
+            messages.success(request,'User created, Welcome')
             return redirect('home')
     return render(request,'users/signup.html',{'form':form})
 
@@ -37,22 +40,34 @@ def user_login(request):
         user=authenticate(request,username=username,password=password)
         if user is not None:
             login(request,user)
+            messages.success(request,'Welcome')
             return redirect('home')
         else:
             return HttpResponse("INVALID PASSWORD")
     return render(request,'users/login.html')
 
 #user logout
+@login_required(login_url='login_user')
 def user_logout(request):
     logout(request)
+    messages.success(request,'User logout')
     return redirect('login_user')
 
 #user info rendering
-
+@login_required(login_url='login_user')
 def user_profile(request):
-    user_info=request.user.profile
+    profile=request.user.profile
+    form =edit_user_form(instance=profile)
+
+    if request.method=='POST':
+        form=edit_user_form(request.POST,request.FILES,instance=profile)
+        if form.is_valid():
+            form.save()
+            messages.success(request,'Profile Updated')
+            return redirect('home')
     context={
-        'user_info':user_info,
+        'user_info':profile,
+        'form':form,
     }
 
     return render(request,'users/user_profile.html',context)

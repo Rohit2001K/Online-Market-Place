@@ -5,6 +5,14 @@
 {%endblock%}
 {%block body%}
 
+{% if messages %}
+<div class="messages">
+    {% for message in messages %}
+        <p class="message {{ message.tags }}">{{ message }}</p>
+    {% endfor %}
+</div>
+{% endif %}
+
 <div class="ad1">
     <p class="p1">Buy Whatever you<br> Like!</p>
     <img src="{%static 'img/default/home_pic.png'%}" class="img1">
@@ -15,6 +23,6 @@
     <p class="p2">Sell Whatever you <br>Want</p>
 
 </div>
-
+<script src="{% static 'style/msg.js' %}"></script>
 
 {%endblock%}

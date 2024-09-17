@@ -1,14 +1,22 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-    {%load static%}
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'style/login.css'%}">
+    <link rel="stylesheet" href="{% static 'style/login.css' %}">
 </head>
 <body>
+    {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <p class="message {{ message.tags }}">{{ message }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
     <div class="main-container">
         <div class="image-container">
-            <img src="{%static 'img/default/logo.png'%}" alt="Logo">
+            <img src="{% static 'img/default/logo.png' %}" alt="Logo">
         </div>
         <div class="form-container">
             <h1>Login</h1>
@@ -19,8 +27,10 @@
                 <input type="submit" value="Login">
             </form>
             <div class="signup-link">
-                <p>Don't have an account? <a href="{%url 'add_user'%}">Sign Up</a></p>
+                <p>Don't have an account? <a href="{% url 'add_user' %}">Sign Up</a></p>
             </div>
         </div>
     </div>
+    <script src="{% static 'style/msg.js' %}"></script>
 </body>
+</html>

@@ -41,7 +41,7 @@ def edit_profile(sender,instance,created,**kwargs):
     profile=instance
     user=profile.user
     if created==False:
-        user.first_name=profile.name
+        user.first_name=profile.first_name
         user.email=profile.email
         user.save()
 

@@ -6,17 +6,25 @@
     <link rel="stylesheet" href="{% static 'style/user_profile.css' %}">
 </head>
 <body>
-    <h1>This is user info</h1>
+    <img src="{%static 'img/default/logo.png'%}" class="logo">
+    <form method="POST" enctype="multipart/form-data">
+        {%csrf_token%}
     <div class="main-box">
         <div class="img-box">
             <img src="{{user_info.pic.url}}" class="img">
+            <p class="img-button">{{ form.pic}}</p>
         </div>
         <div class="container">
-            <p>Username: {{user_info.username}}</p>
-            <p>Email :{{user_info.email}}</p>
-            <p>First Name: {{user_info.first_name}}</p>
-            <p>Last Name: {{user_info.last_name}}</p>
+            <div class="user-info">
+            <p>Username :  {{user_info.username}}</p>
+                <p>First Name : {{form.first_name}}</p>
+                <p>Last Name  : {{form.last_name}}</p>
+                <p>Your Email :{{form.email}}</p>
+               <input type="submit" value="Edit">
+            </form>   
+            <br><br><p>*Username cannot be change</p>
             
+            </div> 
         </div>
     </div>
     

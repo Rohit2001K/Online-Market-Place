@@ -1,6 +1,9 @@
 from django.forms import ModelForm
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from .models import Profile
+from django.forms import ImageField,FileInput
+
 
 #custom user creation forms
 class User_creation(UserCreationForm):
@@ -19,7 +22,7 @@ class User_creation(UserCreationForm):
         }
 
 
-#placeholder for form
+#placeholder for user_create form
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -39,3 +42,19 @@ class User_creation(UserCreationForm):
             'placeholder': 'Confirm Password',
             'class': 'form-input'
         })
+
+
+#user edit profile form
+
+class edit_user_form(ModelForm):
+    pic=ImageField(widget=FileInput)
+    class Meta:
+        model=Profile
+        fields=[
+            'first_name',
+            'last_name',
+            'email',
+            'pic'
+        ]
+
+        
