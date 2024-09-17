@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from .forms import User_creation
 from django.contrib.auth import login,authenticate,logout
 from django.contrib.auth.models import User
-
+from .models import Profile
 from django.http import HttpResponse
 # Create your views here.
 
@@ -42,6 +42,17 @@ def user_login(request):
             return HttpResponse("INVALID PASSWORD")
     return render(request,'users/login.html')
 
+#user logout
 def user_logout(request):
     logout(request)
     return redirect('login_user')
+
+#user info rendering
+
+def user_profile(request):
+    user_info=request.user.profile
+    context={
+        'user_info':user_info,
+    }
+
+    return render(request,'users/user_profile.html',context)

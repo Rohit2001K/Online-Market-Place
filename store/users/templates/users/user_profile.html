@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style/user_profile.css' %}">
+</head>
+<body>
+    <h1>This is user info</h1>
+    <div class="main-box">
+        <div class="img-box">
+            <img src="{{user_info.pic.url}}" class="img">
+        </div>
+        <div class="container">
+            <p>Username: {{user_info.username}}</p>
+            <p>Email :{{user_info.email}}</p>
+            <p>First Name: {{user_info.first_name}}</p>
+            <p>Last Name: {{user_info.last_name}}</p>
+            
+        </div>
+    </div>
+    
+    
+</body>

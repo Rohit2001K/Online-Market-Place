@@ -4,6 +4,7 @@ import uuid
 #import for signals 
 from django.db.models.signals import post_save
 
+
 # Create your models here.
 
 class Profile(models.Model):
@@ -22,7 +23,6 @@ class Profile(models.Model):
 
 
 #signals for user creation
-
 def profile_creation(sender,instance,created,**kwargs):
     if created:
         user=instance
@@ -33,3 +33,16 @@ def profile_creation(sender,instance,created,**kwargs):
         )
 
 post_save.connect(profile_creation,sender=User)
+
+
+#signals for user edit
+
+def edit_profile(sender,instance,created,**kwargs):
+    profile=instance
+    user=profile.user
+    if created==False:
+        user.first_name=profile.name
+        user.email=profile.email
+        user.save()
+
+post_save.connect(edit_profile,sender=Profile)
