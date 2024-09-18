@@ -7,6 +7,7 @@
 </head>
 <body>
     <img src="{%static 'img/default/logo.png'%}" class="logo">
+    
     <form method="POST" enctype="multipart/form-data">
         {%csrf_token%}
     <div class="main-box">
@@ -14,12 +15,13 @@
             <img src="{{user_info.pic.url}}" class="img">
             <p class="img-button">{{ form.pic}}</p>
         </div>
+        
         <div class="container">
             <div class="user-info">
-            <p>Username :  {{user_info.username}}</p>
-                <p>First Name : {{form.first_name}}</p>
-                <p>Last Name  : {{form.last_name}}</p>
-                <p>Your Email :{{form.email}}</p>
+            <p><b>Username :  {{user_info.username}}</p></b>
+                <p><b>First Name</b> : {{form.first_name}}</p>
+                <p><b>Last Name</b>  : {{form.last_name}}</p>
+                <p> <b>My  Email </b>: {{form.email}}</p>
                <input type="submit" value="Edit">
             </form>   
             <br><br><p>*Username cannot be change</p>

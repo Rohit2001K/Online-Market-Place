@@ -35,22 +35,23 @@ def user_login(request):
         password=request.POST['password']
         try:
             user=User.objects.get(username=username)
+            first_name=user.first_name
         except:
-            return HttpResponse("NO USERNAME FOUND")
+            messages.error(request,'invalid username or password')
         user=authenticate(request,username=username,password=password)
         if user is not None:
             login(request,user)
-            messages.success(request,'Welcome')
+            messages.success(request,f'Welcome {first_name}',)
             return redirect('home')
         else:
-            return HttpResponse("INVALID PASSWORD")
+            messages.error(request,'invalid password')
     return render(request,'users/login.html')
 
 #user logout
 @login_required(login_url='login_user')
 def user_logout(request):
     logout(request)
-    messages.success(request,'User logout')
+    messages.success(request,'Logout successful')
     return redirect('login_user')
 
 #user info rendering
