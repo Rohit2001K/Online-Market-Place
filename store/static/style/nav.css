@@ -1,54 +1,96 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color:#F5EFE7;
+    background-color: #F5EFE7;
 }
 
 .navbar {
-    
     display: flex;
     align-items: center;
     padding: 1vh 2vw;
-    height: 8vh; /* Adjust height as needed */
-    position: relative;
-    background-color: transparent; /* Body background color */
+    height: 8vh;
+    background-color: transparent;
     margin-bottom: 10vh;
-    
+    position: relative;
 }
+
 
 .logo {
     margin-top: 7vh;
     position: absolute;
     left: 3vw; 
     width: 12vw;
-    
 }
 
 .navbar .nav-items {
-    
     margin-top: 7vh;
     margin-left: 32vw;
-    background-color:white;
+    background-color: white;
     display: flex;
-    gap: 1.5vw; /* Space between buttons */
-    
+    gap: 1.5vw;
     border-radius: 2vw; 
-    box-shadow:  0 3px 10px rgb(0 0 0 / 0.2);
-    
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
     padding: 1.5vh 1.5vw;
-    position: relative;
 }
 
 .navbar .nav-items a {
     text-decoration: none;
     color: black;
     padding: 0.5vh 2vw;
-    border-radius: 1vw; /* Rounded edges */
+    border-radius: 1vw;
     font-size: 2vh;
     transition: background-color 0.3s;
 }
 
 .navbar .nav-items a:hover {
-    
-    background-color:#729762 ;
+    background-color: #729762;
+    font-size:3vh ;
+}
+
+.dropdown {
+    position: relative;
+    margin-left: auto;
+    margin-top: 7vh;
+    margin-right: 8vw;
+}
+
+.dropbtn {
+    background-color: transparent; 
+    border: none; 
+    cursor: pointer; 
+}
+
+.profile-pic {
+    width: 6vh; 
+    height: 5vh; 
+    border-radius: 50%; 
+}
+
+.dropdown-content {
+    display: none; 
+    margin-right: -6vw;
+    border-radius: 10px;
+    position: absolute;
+    right: 0; 
+    width: 10vw;
+    background-color: white;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    z-index: 1; 
+}
+
+.dropdown:hover .dropdown-content {
+    display: block; 
+}
+
+.dropdown-content a {
+    text-decoration: none;
+    border-radius: 10px;
+    color: black;
+    padding: 1vh 2vw;
+    display: block; 
+    transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: #729762; 
 }

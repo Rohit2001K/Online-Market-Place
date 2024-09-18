@@ -1,7 +1,23 @@
-<!DOCTYPE html>
-<head>
+{% extends 'page/nav.html'%}
+{% load static %}
+{%block css%}
+<link rel="stylesheet" href="{% static 'style/market_page.css'%}">
+{%endblock%}
+{%block body%}
 
-</head>
 <body>
     <h1>welcome to market</h1>
+    <div class="container">
+        {%for iteams in products%}
+        <a href="#" class="item-link">
+        <div class="iteams">
+            <img src="{{iteams.main_img.url}}" class="iteam-img">
+            <p class="title">{{iteams.title|slice:":30"}}</p>
+            <p class="short_discription">{{iteams.short_discription}}</p>
+            <p class="price"><b>INR {{iteams.price}}</b></p>      
+        </div></a>
+        
+        {%endfor%}
+    </div>
+{%endblock%}
 </body>

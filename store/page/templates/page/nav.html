@@ -14,13 +14,21 @@
         <div class="nav-items">
             <a href="{% url 'home'%}">Home</a>
             <a href="{% url 'market'%}">Market</a>
-            <a href="{% url 'user_profile'%}">Inbox</a>
-            {%if request.user.is_authenticated%}
-                <a href="{%url 'logout_user'%}">Logout</a>
-            {%else%}
-            <a href="{%url 'login_user'%}">Login</a>
-            {%endif%}
+            <a href="#">Inbox</a>
+            <a href="#">Sell</a>
         </div>
+        {%if request.user.is_authenticated%}
+        <div class="dropdown">
+            <button class="dropbtn"><img src="{{request.user.profile.pic.url }}" class="profile-pic"></button>
+            <div class="dropdown-content">
+              <a href="{% url 'user_profile'%}">My Profile</a>
+              <a href="#">My Products</a>
+              <a href="#">Inbox</a>
+              <a href="{%url 'logout_user'%}">Logout</a>
+            </div>
+          </div>
+        {%else%}
+        {%endif%}
     </nav>
 {%block body%}
 {%endblock%}
