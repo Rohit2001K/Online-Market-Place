@@ -1,0 +1,86 @@
+.container {
+    display: flex;
+    flex-direction: column; 
+    background-color:white;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    width: 80vw; 
+    height: 95vh;
+    margin: 10vh auto; 
+    border-radius: 10px;
+}
+
+.product-card {
+    display: flex;
+    width: 100%;
+}
+
+.img-section {
+    flex: 1; 
+    padding: 1vw; 
+}
+
+.product-img {
+    width:42vw;
+    height:52vh;
+    border-radius: 10px;
+}
+
+.info {
+    flex: 2; 
+    padding: 1vw; 
+    position: relative; 
+}
+
+.title {
+    font-size: 5vh;
+}
+
+.short-description, 
+.description {
+    margin: 1vh 0; 
+}
+
+.price {
+    position: absolute; 
+    bottom: 0; 
+    left: 0; 
+    font-size: 5vh; 
+}
+.heading{
+    margin-top: 2vh;
+    margin-left: 2vw;
+}
+.other {
+    display: flex; 
+    flex-direction: row; 
+    padding: 2vw; 
+    font-size: 2.5vh; 
+    justify-content: space-between; 
+}
+.button1{
+    background-color: #729762;
+    height: 8vh;
+    width: 45%;
+    margin-left: 2vw;
+    font-size: 2vh;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.button2{
+    background-color:#729762;
+    height: 8vh;
+    width: 45%;
+    border-radius: 8px;
+    float: right;
+    font-size: 2vh;
+    margin-right: 2vw;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.button1:hover{
+    background-color:white;
+}
+.button2:hover{
+    background-color:white;
+}

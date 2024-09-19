@@ -1,0 +1,41 @@
+{% extends 'page/nav.html'%}
+{% load static %}
+{%block css%}
+<link rel="stylesheet" href="{% static 'style/detail_product.css'%}">
+{%endblock%}
+{% block body %}
+<body>
+    <center><h1>Product Info</h1></center>
+    <div class="container">
+        <div class="product-card">
+            <div class="img-section">
+                <img src="{{iteam.main_img.url}}" class="product-img">
+            </div>
+            <div class="info">
+                <p class="title">{{iteam.title}}</p>
+                <p>{{iteam.short_discription}}</p>
+                <p>{{iteam.discription}}</p>
+                <div class="price">
+                    <p>INR {{iteam.price}}</p>
+                </div>
+            </div>
+        </div>
+        <h1 class="heading">Other info</h1>
+        <div class="other">
+            <p>Owner : {{iteam.ownership_type}} Owner</p>
+            <p>Have Bill and Box :{{iteam.bill_and_box}}</p>
+            <p>Purchase Date : {{iteam.purchase_date}}</p>
+            <!-- Add your other info here -->
+        </div>  
+        <div class="options">
+            <a href="#">
+                <button class="button1">Seller Profile</button>
+            </a>
+            <a href="#">
+                <button class="button2">Contact Seller</button>
+            </a>
+            
+        </div>
+    </div>
+</body>
+{% endblock %}

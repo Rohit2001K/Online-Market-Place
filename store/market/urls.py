@@ -6,5 +6,6 @@ from . import views
 #market urls
 
 urlpatterns=[
-    path('',views.market_page,name='market')
+    path('',views.market_page,name='market'),
+    path('/product/<str:pk>',views.detail_product,name='detail_product')
 ]

@@ -9,7 +9,7 @@
     <h1>welcome to market</h1>
     <div class="container">
         {%for iteams in products%}
-        <a href="#" class="item-link">
+        <a href="{% url 'detail_product' iteams.product_id%}" class="item-link">
         <div class="iteams">
             <img src="{{iteams.main_img.url}}" class="iteam-img">
             <p class="title">{{iteams.title|slice:":30"}}</p>

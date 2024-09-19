@@ -94,3 +94,28 @@ body {
 .dropdown-content a:hover {
     background-color: #729762; 
 }
+.login-button {
+    background-color: #729762;
+    margin-top: 7vh;
+    position: relative;
+    margin-left: auto;
+    margin-right: 3vw;
+    color: white;
+    height: 5vh; 
+    width: auto; 
+    border-radius: 1vw;
+    font-size: 2vh;
+    padding: 0.5vh 2vw; 
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    text-decoration: none;
+    display: flex; 
+    align-items: center; 
+}
+
+.login-button:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+
