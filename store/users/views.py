@@ -54,7 +54,7 @@ def user_logout(request):
     messages.success(request,'Logout successful')
     return redirect('login_user')
 
-#user info rendering
+#user info rendering and editing
 @login_required(login_url='login_user')
 def user_profile(request):
     profile=request.user.profile
@@ -63,7 +63,8 @@ def user_profile(request):
     if request.method=='POST':
         form=edit_user_form(request.POST,request.FILES,instance=profile)
         if form.is_valid():
-            form.save()
+            form.save(commit=False)
+            
             messages.success(request,'Profile Updated')
             return redirect('home')
     context={

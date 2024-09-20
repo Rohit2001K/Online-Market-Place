@@ -2,6 +2,14 @@
 {% load static %}
 {%block css%}
 <link rel="stylesheet" href="{% static 'style/market_page.css'%}">
+<style>
+    body{
+        background-image: url("{% static 'img/default/market_back.png' %}");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+</style>
 {%endblock%}
 {%block body%}
 
