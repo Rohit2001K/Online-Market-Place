@@ -11,10 +11,18 @@
     }
 </style>
 {%endblock%}
-{%block body%}
 
-<body>
-    <h1>welcome to market</h1>
+{%block body%}
+<div class="search-box">
+    <form method="GET">
+        <div class="search-container">
+            <img src="{% static 'img/default/search-icon.png' %}" class="search-img">
+            <input type="text" name="search" placeholder="Search Products....." class="search" value="{{search}}">
+        </div>
+    </form>
+</div>
+
+
     <div class="container">
         {%for iteams in products%}
         <a href="{% url 'detail_product' iteams.product_id%}" class="item-link">
@@ -27,5 +35,25 @@
         
         {%endfor%}
     </div>
+
+
+    <div class="pagination-container">
+        <ul class="pagination-list">
+            {%if products.has_previous%}
+                <li class="pagination-item"><a class="pagination-link" href="?page={{products.previous_page_number}}">Back</a></li>
+            {%endif%}
+            {% for page in pag.page_range %}
+                {% if page == products.number%}
+                    <li class="active-pagination-item"><a class="active-pagination-link" href="?page={{page}}">{{page}}</a></li>
+                {%else%}
+                    <li class="pagination-item"><a class="pagination-link" href="?page={{page}}">{{page}}</a></li>
+                {%endif%}
+            {% endfor %}
+            {%if products.has_next%}
+                <li class="pagination-item"><a class="pagination-link" href="?page={{products.next_page_number}}">Next</a></li>
+            {%endif%}
+        </ul>
+    </div>
+
+
 {%endblock%}
-</body>

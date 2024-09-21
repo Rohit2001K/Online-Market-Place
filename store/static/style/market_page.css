@@ -1,8 +1,41 @@
 body{
     background-color: #F5EFE7;
 }
+.search-box {
+    margin-left: 12vw;
+}
+
+.search-container {
+    position: relative;
+    width: 80%;
+}
+
+.search {
+    width: 100%;
+    height: 5vh;
+    border-radius: 5px;
+    border: none;
+    font-size: 1vw;
+    background-color: #729762;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding-left:3vw;
+}
+
+.search:focus {
+    background-color: white;
+}
+
+.search-img {
+    position: absolute;
+    left: 10px; 
+    top: 50%;
+    transform: translateY(-50%);
+    height: 3vh; 
+    pointer-events: none; 
+}
 
 .container {
+    margin-top: 5vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start; 
@@ -45,7 +78,6 @@ body{
     font-size: 1.5vw;
 }
 
-/* Hover effect */
 .iteams:hover {
     background: #729762;
     transform: translateY(-5px);
@@ -53,6 +85,70 @@ body{
 }
 .item-link {
     display: block;
-    text-decoration: none; /* Remove underline */
-    color: inherit; /* Inherit text color */
+    text-decoration: none; 
+    color: inherit; 
+}
+
+
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2vh 0; 
+    
+}
+
+
+.pagination-list {
+    list-style-type: none; 
+    display: flex;
+    gap: 1vw; 
+}
+
+
+.pagination-item {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color:#729762;
+    border-radius: 5px; 
+    overflow: hidden; 
+}
+
+
+.pagination-link {
+    display: block;
+    padding: 1vh 2vw;
+    color: white; 
+    text-decoration: none; 
+    font-size: 2vh; 
+    transition: background-color 0.3s;}
+
+
+.pagination-link:hover {
+    background-color:green;
+    padding: 1vh 2vw;
+    color: black;
+}
+
+.active-pagination-item{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color:green;
+    border-radius: 5px; 
+    overflow: hidden;
+}
+.active-pagination-link{
+    display: block;
+    padding: 1vh 2vw;
+    color: black; 
+    text-decoration: none; 
+    font-size: 2vh; 
+    transition: background-color 0.3s;
+
+}
+
+@media (max-width: 600px){
+    .pagination-link {
+        font-size: 4vw; 
+        padding: 2vh 4vw; 
+    }
 }

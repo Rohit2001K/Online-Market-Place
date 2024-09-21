@@ -4,7 +4,7 @@
     background-color:white;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
     width: 80vw; 
-    height: 95vh;
+    height: auto;
     margin: 10vh auto; 
     border-radius: 10px;
 }
@@ -65,6 +65,7 @@
     font-size: 2vh;
     border-radius: 8px;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    margin-bottom: 5vh;
 }
 
 .button2{
@@ -75,6 +76,7 @@
     float: right;
     font-size: 2vh;
     margin-right: 2vw;
+    margin-bottom: 5vh;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 

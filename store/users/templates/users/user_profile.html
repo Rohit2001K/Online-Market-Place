@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<head>
-    {% load static %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends 'page/nav.html'%}
+{% load static %}
+{%block css%}
     <link rel="stylesheet" href="{% static 'style/user_profile.css' %}">
-</head>
-<body>
-    <img src="{%static 'img/default/logo.png'%}" class="logo">
+{%endblock%}
+
+{%block body%}
     
     <form method="POST" enctype="multipart/form-data">
         {%csrf_token%}
@@ -30,5 +28,4 @@
         </div>
     </div>
     
-    
-</body>
+{%endblock%}

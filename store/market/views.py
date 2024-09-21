@@ -4,21 +4,47 @@ from .models import Product
 from .forms import product_upload_from
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.db.models import Q
+from django.core.paginator import Paginator,PageNotAnInteger,EmptyPage
 # Create your views here.
 
 
 
 #market home page
 def market_page(request):
-    products=Product.objects.all()
+    
+    #seach
+    search=''
+    if request.GET.get('search'):
+        search=request.GET.get('search')
+    products=Product.objects.distinct().filter(
+        Q(title__icontains=search)
+        )
+    
+    #For pagination
+    page=request.GET.get('page')
+    result=6
+    pag=Paginator(products,result)
+    try:
+        products=pag.page(page)
+    except PageNotAnInteger:
+        products=pag.page(1)
+    except EmptyPage:
+        page=pag.num_pages
+        products=pag.page(page)
+    #Pagination end
+
     content={
-        'products':products
+        'products':products,
+        'search':search,
+        'pag':pag
     }
     return render(request,'market/market_page.html',content)
 
 
 
-#detail page 
+#product detail page 
+@login_required(login_url='login_user')
 def detail_product(request,pk):
     iteam=Product.objects.get(product_id=pk)
     content={
