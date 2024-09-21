@@ -3,6 +3,26 @@ import uuid
 from users.models import Profile
 # Create your models here.
 
+class Tag(models.Model):
+    types=(
+        
+        ('mobiles', 'Mobiles'),
+        ('smartphones', 'Smartphones'),
+        ('laptops', 'Laptops'),
+        ('electronics', 'Electronics'),
+        ('computers', 'Computesr'),
+        ('fashion_and_clothes', 'Fashion and Clothes'),
+        ('houses', 'Houses'),
+        ('rentes', 'Rentes'),
+        ('cars', 'Cars'),
+        ('bikes', 'Bikes'),
+
+    )
+    tag_type=models.CharField(max_length=20,choices=types,default=None,null=True,blank=True)
+
+    def __str__(self):
+        return str(self.tag_type)
+
 
 class Product(models.Model):
     owner=models.ForeignKey(Profile,on_delete=models.CASCADE)
@@ -28,6 +48,12 @@ class Product(models.Model):
         ('No',"I don't have bill or box")
     )
     bill_and_box=models.CharField(choices=bill_and_box_options,max_length=50,default=None,null=True,blank=True)
+    created = models.DateTimeField(auto_now_add=True)
+    tags=models.ManyToManyField(Tag,blank=True)
 
     def __str__(self):
         return self.title
+    
+    class Meta:
+        ordering=['-created']
+    

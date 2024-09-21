@@ -1,7 +1,7 @@
 .container {
     display: flex;
     flex-direction: column; 
-    background-color:white;
+    background-color:#e6eeea;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
     width: 80vw; 
     height: auto;
@@ -44,6 +44,7 @@
     position: absolute; 
     bottom: 0; 
     left: 0; 
+    margin-left: 2vw;
     font-size: 5vh; 
 }
 .heading{
@@ -85,4 +86,30 @@
 }
 .button2:hover{
     background-color:white;
+}
+
+.main-img-container {
+    display: flex;
+    justify-content: center;
+}
+
+.thumbnail-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1vh;
+}
+
+.thumbnail {
+    width: 3vw;
+    height: 3vw;
+    margin: 0 0.5vw;
+    opacity: 0.5;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 5px;
+}
+
+.thumbnail:hover {
+    opacity: 1;
+    border: 2px solid #729762;
 }

@@ -4,12 +4,21 @@
 <link rel="stylesheet" href="{% static 'style/detail_product.css'%}">
 {%endblock%}
 {% block body %}
-<body>
+
     <center><h1>Product Info</h1></center>
     <div class="container">
         <div class="product-card">
             <div class="img-section">
-                <img src="{{iteam.main_img.url}}" class="product-img">
+                <div class="main-img-container">
+                    <img src="{{iteam.main_img.url}}" class="product-img" id="mainImg">
+                </div>
+                <div class="thumbnail-container">
+                    <img src="{{iteam.main_img.url}}" class="thumbnail" onclick="changeImage('{{iteam.main_img.url}}')">
+                    <img src="{{iteam.sub_img1.url}}" class="thumbnail" onclick="changeImage('{{iteam.sub_img1.url}}')">
+                    <img src="{{iteam.sub_img2.url}}" class="thumbnail" onclick="changeImage('{{iteam.sub_img2.url}}')">
+                    <img src="{{iteam.sub_img3.url}}" class="thumbnail" onclick="changeImage('{{iteam.sub_img3.url}}')">
+                    <img src="{{iteam.sub_img4.url}}" class="thumbnail" onclick="changeImage('{{iteam.sub_img4.url}}')">
+                </div>
             </div>
             <div class="info">
                 <p class="title">{{iteam.title}}</p>
@@ -29,8 +38,8 @@
         </div>  
         <h1 class="heading">Uploader Info</h1>
         <div class="other">
-            <p>Uploaded By : {{iteam.ownership_type}} Owner</p>
-            <p>Uploaded On :{{iteam.bill_and_box}}</p>
+            <p>Uploaded By : {{iteam.owner.username}}</p>
+            <p>Uploaded On :{{iteam.created.date}}</p>
            
 
         </div>  
@@ -44,5 +53,12 @@
             
         </div>
     </div>
-</body>
+
+
+<script>
+    function changeImage(imageUrl) {
+        document.getElementById('mainImg').src = imageUrl;
+    }
+</script>
+
 {% endblock %}

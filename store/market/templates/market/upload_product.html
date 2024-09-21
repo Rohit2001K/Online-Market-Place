@@ -12,65 +12,74 @@
             {% endfor %}
         </div>
     {% endif %}
-<form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    <div class="container">
-        <div class="info">
-            <center><h1>Upload Your Product In Market Place</h1></center>
-            
-            <div class="form-group">
-                <label>Product Title:</label>
-                {{ form.title }}
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="container">
+            <div class="info">
+                <center><h1>Upload Your Product In Market Place</h1></center>
+    
+                <div class="form-group">
+                    <label>Product Title:</label>
+                    {{ form.title }}
+                </div>
+                <div class="form-group">
+                    <label>Short Description:</label>
+                    {{ form.short_discription }}
+                </div>
+                <div class="form-group">
+                    <label>Description:</label>
+                    {{ form.discription }}
+                </div>
+                <div class="form-group">
+                    <label>Price:</label>
+                    {{ form.price }}
+                </div>
+                <div class="form-group">
+                    <label>You are:</label>
+                    {{ form.ownership_type }}
+                </div>
+                <div class="form-group">
+                    <label>You Have Bill and Box?</label>
+                    {{ form.bill_and_box }}
+                </div>
+                <div class="form-group">
+                    <label>Purchase Date:</label>
+                    {{ form.purchase_date }}
+                </div>
+                <br>
+                <div class="form-group">
+                    <label>Add Product Cover Image:</label>
+                    {{ form.main_img }}
+                </div>
+                <div class="form-group">
+                    <label>Other Image 1:</label>
+                    {{ form.sub_img1 }}
+                </div>
+                <div class="form-group">
+                    <label>Other Image 2:</label>
+                    {{ form.sub_img2 }}
+                </div>
+                <div class="form-group">
+                    <label>Other Image 3:</label>
+                    {{ form.sub_img3 }}
+                </div>
+                <div class="form-group">
+                    <label>Other Image 4:</label>
+                    {{ form.sub_img4 }}
+                </div>
+                <div class="form-group">
+                    <label>Main Tag:</label>
+                    {{ form.tags }}
+                </div>
+                <div class="form-group">
+                    <label>Other Tag:</label>
+                    {{ form.tags }}
+                </div>
+                
+                <input type="submit" value="Submit" class="sub-button">
             </div>
-            <div class="form-group">
-                <label>Short Description:</label>
-                {{ form.short_discription }}
-            </div>
-            <div class="form-group">
-                <label>Description:</label>
-                {{ form.discription }}
-            </div>
-            <div class="form-group">
-                <label>Price:</label>
-                {{ form.price }}
-            </div>
-            <div class="form-group">
-                <label>You are:</label>
-                {{ form.ownership_type }}
-            </div>
-            <div class="form-group">
-                <label>You Have Bill and box?</label>
-                {{ form.bill_and_box }}
-            </div>
-            <div class="form-group">
-                <label>Purchase Date:</label>
-                {{ form.purchase_date }}
-            </div>
-            <br>
-            <div class="form-group">
-                <label>Add Product Cover Image:</label>
-                {{ form.main_img }}
-            </div>
-            <div class="form-group">
-                <label>Other Image 1:</label>
-                {{ form.sub_img1 }}
-            </div>
-            <div class="form-group">
-                <label>Other Image 2:</label>
-                {{ form.sub_img2 }}
-            </div>
-            <div class="form-group">
-                <label>Other Image 3:</label>
-                {{ form.sub_img3 }}
-            </div>
-            <div class="form-group">
-                <label>Other Image 4:</label>
-                {{ form.sub_img4 }}
-            </div>
-            
-            <input type="submit" value="Submit" class="sub-button">
         </div>
-    </div>
-</form>
-<script src="{% static 'style/msg.js' %}"></script>
-{% endblock %}
+    </form>
+    <script src="{% static 'style/msg.js' %}"></script>
+     
+{%endblock%}

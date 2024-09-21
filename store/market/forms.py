@@ -20,7 +20,8 @@ class product_upload_from(ModelForm):
             'sub_img1',
             'sub_img2',
             'sub_img3',
-            'sub_img4'
+            'sub_img4',
+            'tags',
         ]
 
         widgets = {
@@ -36,4 +37,7 @@ class product_upload_from(ModelForm):
             'sub_img2': forms.ClearableFileInput(attrs={'class': 'input-field'}),
             'sub_img3': forms.ClearableFileInput(attrs={'class': 'input-field'}),
             'sub_img4': forms.ClearableFileInput(attrs={'class': 'input-field'}),
+            'tags': forms.SelectMultiple(attrs={'class': 'input-field'}), 
         }
+
+        
