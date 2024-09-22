@@ -25,7 +25,6 @@ def add_user(request):
 
 
 #User Login
-
 def user_login(request):
     if request.user.is_authenticated:
        return redirect('home') 
@@ -53,6 +52,8 @@ def user_logout(request):
     logout(request)
     messages.success(request,'Logout successful')
     return redirect('login_user')
+
+
 
 #user info rendering and editing
 @login_required(login_url='login_user')

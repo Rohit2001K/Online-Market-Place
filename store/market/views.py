@@ -70,9 +70,62 @@ def upload_product(request):
             messages.success(request,'Product is Uploaded')
             return redirect('home')
         else:
-            print(form.errors)
             messages.error(request,'Please Fill all fields properly')
     content={
         'form':form,
     }
     return render(request,'market/upload_product.html',content)
+
+
+
+#Show owner his uploaded products
+@login_required(login_url='login_user')
+def user_product_page(request):
+    owner=request.user.profile
+    user_products=Product.objects.filter(owner=owner)
+    content={
+        'user_products':user_products,
+    }
+    return render(request,'market/user_product_page.html',content)
+
+
+
+
+#Using same form for editing products
+@login_required(login_url='login_user')
+def edit_product(request,pk):
+    owner=request.user.profile
+    product=Product.objects.get(product_id=pk)
+    if owner == product.owner:                                                 #Making sure that only requested user is owner of that product
+        if request.method == 'POST':
+            form = product_upload_from(request.POST, request.FILES, instance=product)
+            if form.is_valid():
+                form.save()
+                messages.success(request, 'Product Edited')
+                return redirect('home')
+            else:
+                messages.error(request, 'Please fill all fields properly')
+        else:
+            form = product_upload_from(instance=product) 
+    else:
+        messages.error(request, 'You are not authorized to edit this product')
+        return redirect('home')
+
+    content = {
+        'form': form,
+    }
+    return render(request, 'market/upload_product.html', content)
+
+
+#Product deletion
+@login_required(login_url='login_user')
+def product_delete(request,pk):
+    owner=request.user.profile 
+    product=Product.objects.get(product_id=pk)
+    if owner==product.owner:                                                     #Making sure that only requested user is owner of that product
+        product.delete()
+        messages.success(request, 'Product Deleted')
+        return redirect('home')
+    else:
+        messages.error(request, 'You are not authorized to delete this product')
+        return redirect('home')

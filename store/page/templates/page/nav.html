@@ -22,7 +22,7 @@
             <button class="dropbtn"><img src="{{request.user.profile.pic.url }}" class="profile-pic"></button>
             <div class="dropdown-content">
               <a href="{% url 'user_profile'%}">My Profile</a>
-              <a href="#">My Products</a>
+              <a href="{%url 'my_product'%}">My Products</a>
               <a href="#">Inbox</a>
               <a href="{%url 'logout_user'%}">Logout</a>
             </div>

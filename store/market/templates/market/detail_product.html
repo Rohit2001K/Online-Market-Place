@@ -44,13 +44,21 @@
 
         </div>  
         <div class="options">
+            {%if request.user.profile == iteam.owner%}
+            <a href="{% url 'user_profile'%}">
+                <button class="button1">Your Profile</button>
+            </a>
+            <a href="{% url 'edit_product' pk=iteam.product_id%}">
+                <button class="button2">Edit This Product</button>
+            </a>
+            {%else%}
             <a href="#">
                 <button class="button1">Seller Profile</button>
             </a>
             <a href="#">
                 <button class="button2">Contact Seller</button>
             </a>
-            
+            {%endif%}
         </div>
     </div>
 

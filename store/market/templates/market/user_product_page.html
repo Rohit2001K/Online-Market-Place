@@ -1,0 +1,33 @@
+{% extends 'page/nav.html'%}
+{% load static %}
+{%block css%}
+<link rel="stylesheet" href="{% static 'style/user_product_page.css'%}">
+{%endblock%}
+{% block body %}
+
+
+    <div class="product-container">
+        <div class="user-container">
+            <h1 class="user-container-heading">All Products</h1>
+        </div>
+        <div class="info-container">
+            <center><h1> My Listed Products</h1></center><br>
+            {%if user_products%}
+                {%for products in user_products%}           
+                    <ul class="info-container-list">
+                        <li class="info-container-list-iteam">{{products.title}}
+                            <a class="info-container-button" href="{% url 'delete_product' pk=products.product_id%}">Delete</a>
+                            <a class="info-container-button" href="{% url 'edit_product' pk=products.product_id%}">Edit</a>
+                            <a class="info-container-button" href="{% url 'detail_product' products.product_id%}">View</a></li>
+                            
+                    </ul>
+                {%endfor%}
+            {%else%}
+                <h1>You Haven't List Any Products In Market</h1>
+            {%endif%}    
+        </div>
+    </div>
+
+    
+{%endblock%}
+
