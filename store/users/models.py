@@ -3,8 +3,7 @@ from django.contrib.auth.models import User
 import uuid
 #import for signals 
 from django.db.models.signals import post_save
-
-
+from market.models import Product
 # Create your models here.
 
 class Profile(models.Model):
@@ -19,6 +18,32 @@ class Profile(models.Model):
     def __str__(self):
         return str(self.username)
     
+
+class inbox_messages(models.Model):
+    sender=models.ForeignKey('users.Profile',on_delete=models.SET_NULL,null=True,blank=True)
+    reciver=models.ForeignKey('users.Profile',on_delete=models.SET_NULL,null=True,related_name='inbox_msg')
+    product=models.ForeignKey(Product,on_delete=models.SET_NULL,null=True)
+    name=models.CharField(max_length=50,null=True,blank=True)
+    email=models.EmailField(null=True,blank=True)
+    created=models.DateTimeField(auto_now_add=True)
+    body=models.TextField()
+    is_read=models.BooleanField(default=False)
+    id=models.UUIDField(default=uuid.uuid1,primary_key=True)
+
+    def __str__(self):
+        return str(self.product)
+
+    class Meta:
+        ordering=['is_read','-created']
+
+
+
+
+
+
+
+
+
 
 
 
@@ -46,3 +71,7 @@ def edit_profile(sender,instance,created,**kwargs):
         user.save()
 
 post_save.connect(edit_profile,sender=Profile)
+
+
+
+

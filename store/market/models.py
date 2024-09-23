@@ -1,6 +1,6 @@
 from django.db import models
 import uuid
-from users.models import Profile
+
 # Create your models here.
 
 class Tag(models.Model):
@@ -25,7 +25,7 @@ class Tag(models.Model):
 
 
 class Product(models.Model):
-    owner=models.ForeignKey(Profile,on_delete=models.CASCADE)
+    owner=models.ForeignKey('users.Profile',on_delete=models.CASCADE)
     product_id=models.UUIDField(default=uuid.uuid1,primary_key=True)
     title=models.CharField(max_length=50,null=False)
     short_discription=models.CharField(max_length=100,null=True,blank=True,default='')

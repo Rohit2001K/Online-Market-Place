@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from .forms import User_creation,edit_user_form
 from django.contrib.auth import login,authenticate,logout
 from django.contrib.auth.models import User
-from .models import Profile
+from .models import Profile,inbox_messages
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -74,3 +74,16 @@ def user_profile(request):
     }
 
     return render(request,'users/user_profile.html',context)
+
+
+#messages for inbox
+@login_required(login_url='login_user')
+def inbox(request):
+    user=request.user.profile
+    msg=user.inbox_msg.all()
+    unread_messages=msg.filter(is_read=False).count()
+    content={
+        'msg':msg,
+        'unread_messages':unread_messages
+    }
+    return render(request,'users/inbox.html',content)

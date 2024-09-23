@@ -1,0 +1,33 @@
+{% extends 'page/nav.html'%}
+{% load static %}
+{%block css%}
+    <link rel="stylesheet" href="{% static 'style/inbox.css' %}">
+{%endblock%}
+
+{%block body%}
+
+<div class="inbox-container">
+    <div class="messages-box">
+        <center><h1 class="heading"> Messages</h1></center>
+        <center><p class="sub-heading"> You have Total ({{unread_messages}}) New Messages</p></center>
+        {%if msg%}
+            <div class="messages-info">
+                {%for i in msg%}
+                    <ul class="messages-ul">
+                        <li>{{i.sender}}</li>
+                        <li>{{i.product.title}}</li>
+                        <li class="msg-date">{{i.created.date}}</li>
+                    </ul>
+                {%endfor%}
+            </div>
+        {%else%}
+            <p>No msg found</p>
+        {%endif%}
+        
+   
+    </div>
+    
+
+</div>
+
+{%endblock%}
