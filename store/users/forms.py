@@ -1,7 +1,7 @@
 from django.forms import ModelForm
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import Profile
+from .models import Profile,inbox_messages
 from django.forms import ImageField,FileInput
 
 
@@ -44,8 +44,8 @@ class User_creation(UserCreationForm):
         })
 
 
-#user edit profile form
 
+#user edit profile form
 class edit_user_form(ModelForm):
     pic=ImageField(widget=FileInput)
     class Meta:
@@ -57,4 +57,14 @@ class edit_user_form(ModelForm):
             'pic'
         ]
 
-        
+
+
+
+#message form
+
+class SendMessage(ModelForm):
+    class Meta:
+        model=inbox_messages
+        fields=[
+            'body'
+        ]

@@ -9,4 +9,6 @@ urlpatterns=[
     path('logout/',views.user_logout,name='logout_user'),
     path('user-info/',views.user_profile,name='user_profile'),
     path('user-inbox/',views.inbox,name='inbox'),
+    path('message/<str:pk>',views.message_box,name='message'),
+    path('send_message/<str:pk>', views.send_message, name='send_message'),
 ]

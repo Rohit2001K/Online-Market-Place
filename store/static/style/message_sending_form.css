@@ -1,0 +1,61 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    margin-top: 7vh;
+    margin-left: 10vw;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+    width: 80vw;
+    min-height: 50vh;
+    color: black;
+    border-radius: 10px;
+    background-color: #6ba06b;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    padding: 3vh 2vw; 
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    width: 70vw; 
+    margin-bottom: 2vh; 
+}
+
+label {
+    font-size: 1.5vw; 
+    margin-bottom: 1vh; 
+    text-align: center; 
+}
+
+input[type="text"], 
+textarea {
+    width: 100%; 
+    padding: 1vh; 
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.2vw; 
+    text-align: center; 
+}
+
+input[type="submit"] {
+    margin-top: 2vh; 
+    width: 70vw; 
+    padding: 1.5vh; 
+    border: none;
+    border-radius: 6px;
+    background: #eb9f05;
+    color: white;
+    font-size: 1.5vw; 
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transition for hover effect */
+}
+
+input[type="submit"]:hover {
+    background: #ab7201; 
+    transform: scale(1.05);
+}

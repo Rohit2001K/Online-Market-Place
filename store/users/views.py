@@ -1,11 +1,12 @@
 from django.shortcuts import render,redirect
-from .forms import User_creation,edit_user_form
+from .forms import User_creation,edit_user_form,SendMessage
 from django.contrib.auth import login,authenticate,logout
 from django.contrib.auth.models import User
 from .models import Profile,inbox_messages
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from market.models import Product
 # Create your views here.
 
 #user creation
@@ -87,3 +88,39 @@ def inbox(request):
         'unread_messages':unread_messages
     }
     return render(request,'users/inbox.html',content)
+
+
+#message opening
+@login_required(login_url='login_user')
+def message_box(request,pk):
+    user=request.user.profile
+    msg=user.inbox_msg.get(id=pk)
+    msg.is_read=True
+    msg.save()
+    content={
+        'msg':msg
+
+    }
+    return render(request,'users/message.html',content)
+
+@login_required(login_url='login_user')
+def send_message(request,pk):
+    reciver_product=Product.objects.get(product_id=pk)
+    sender_user=request.user.profile  
+    form=SendMessage() 
+    if request.method=='POST':
+        form=SendMessage(request.POST)
+        if form.is_valid():
+            form_save=form.save(commit=False)
+            form_save.sender=sender_user
+            form_save.reciver=reciver_product.owner
+            form_save.product=reciver_product
+            form_save.email=sender_user.email
+            form_save.save()
+            messages.success(request,'Message Send!')
+            return redirect('home')
+    content={
+        'form':form
+
+    }
+    return render(request,'users/message_sending_form.html',content)

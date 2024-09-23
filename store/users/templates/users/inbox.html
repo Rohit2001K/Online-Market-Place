@@ -13,10 +13,11 @@
         {%if msg%}
             <div class="messages-info">
                 {%for i in msg%}
+                <a href="{%url 'message' i.id%}" class="msg-link">
                     <ul class="messages-ul">
                         <li>{{i.sender}}</li>
                         <li>{{i.product.title}}</li>
-                        <li class="msg-date">{{i.created.date}}</li>
+                        <a href="#"></a>
                     </ul>
                 {%endfor%}
             </div>

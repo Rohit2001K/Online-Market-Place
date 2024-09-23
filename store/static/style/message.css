@@ -1,0 +1,71 @@
+.msg-container {
+    width: 80vw;
+    height: auto;
+    min-height: 40vh;
+    background-color: #729762;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    margin-top: 10vw;
+    padding: 20px;
+}
+
+.msg-info {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.product-title {
+    padding-top: 3vh;
+    text-align: center;
+    font-size: 5vh;
+}
+
+.message-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; 
+}
+
+.sender-name {
+    padding-top: 5vh;
+    font-size: 3vh;
+    font-weight: bold;
+    margin-left: 2vw;
+}
+
+.date-time {
+    padding-top: 5vh;
+    font-size: 3vh;
+    color: gray;
+}
+
+.message-body {
+    margin-left: 2vw;
+    padding-top: 8vh;
+    padding-bottom: 8vh;
+    font-size: 3vh;
+    line-height: 1.5;
+    margin-top: 1vh; 
+}
+.buttons{
+    width: 40%;
+    margin-left: 3vw;
+    height: auto;
+    min-height: 5vh;
+    background-color: #729762;
+    border-radius: 5px;
+    font-size: 3vh;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.button-link{
+    text-decoration: None;
+    color: black;
+}
+
+.buttons:hover{
+    background-color: white;
+}

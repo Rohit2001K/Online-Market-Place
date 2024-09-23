@@ -1,0 +1,36 @@
+{% extends 'page/nav.html'%}
+{% load static %}
+{%block css%}
+    <link rel="stylesheet" href="{% static 'style/message.css' %}">
+{%endblock%}
+
+{%block body%}
+<div class="msg-container">
+    <div class="msg-info">
+        <div class="product-title">{{msg.product.title}}</div>
+        <div class="message-details">
+            <div class="sender-name">Sender: <b>{{msg.sender}}</b></div>
+            <div class="date-time">{{msg.created}}</div>
+        </div>
+        {%if msg.email%}
+            <div class="sender-name">Sender Email :{{msg.email}}</div>
+            
+        {%else%}
+            <div class="message-body">Sender Email :</div>
+        {%endif%}
+        <div class="message-body">{{msg.body}}</div>
+        
+        <div class="message-body">
+            <button class="buttons"><a href="#" class="button-link">Reply</a></button>
+            <button class="buttons"><a href="#" class="button-link">View Sender Profile</a></button>
+        </div>
+        
+    </div>
+</div>
+
+
+
+
+
+
+{%endblock%}

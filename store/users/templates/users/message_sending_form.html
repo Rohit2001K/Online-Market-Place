@@ -1,0 +1,20 @@
+{% extends 'page/nav.html'%}
+{% load static %}
+{%block css%}
+    <link rel="stylesheet" href="{% static 'style/message_sending_form.css' %}">
+{%endblock%}
+{%block body%}
+<div class="container">
+    <h1>Send Your Message To Product Owner</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="body">Type Below</label>
+            {{ form.body }}
+        </div>
+        <input type="submit" value="Send">
+    </form>
+</div>
+
+
+{%endblock%}
