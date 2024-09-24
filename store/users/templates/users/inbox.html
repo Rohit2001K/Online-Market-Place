@@ -17,12 +17,12 @@
                     <ul class="messages-ul">
                         <li>{{i.sender}}</li>
                         <li>{{i.product.title}}</li>
-                        <a href="#"></a>
+                        <a href="{% url 'delete_message' i.id%}" class="del_msg">Delete</a>
                     </ul>
                 {%endfor%}
             </div>
         {%else%}
-            <p>No msg found</p>
+            <p>You Have No Messages</p>
         {%endif%}
         
    

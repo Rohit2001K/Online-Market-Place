@@ -12,6 +12,9 @@ class Profile(models.Model):
     first_name=models.CharField(max_length=20,null=False)
     last_name=models.CharField(max_length=50,null=False)
     email=models.EmailField()
+    phone_number=models.CharField(max_length=14,null=True,blank=True)
+    city=models.CharField(max_length=50,null=True,blank=True)
+    state=models.CharField(max_length=100,null=True,blank=True)
     id=models.UUIDField(default=uuid.uuid1,primary_key=True)
     pic=models.ImageField(default='user/user.jpg',upload_to='user/')
     

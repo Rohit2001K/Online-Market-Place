@@ -1,0 +1,51 @@
+{% extends 'page/nav.html'%}
+{% load static %}
+{%block css%}
+    <link rel="stylesheet" href="{% static 'style/seller_profile.css' %}">
+{%endblock%}
+
+{%block body%}
+
+    <div class="main-box">
+        <div class="img-box">
+            <img src="{{ seller.pic.url }}" class="img">
+        </div>
+        
+        <div class="container">
+            <div class="user-info">
+                <center><h1>Product Lister Info</h1></center>
+                <div class="form-group">
+                    <label>Name:</label>
+                    <div class="info">{{ seller.first_name }} {{ seller.last_name }}</div>
+                </div>
+            
+                <div class="form-group">
+                    <label>Email:</label>
+                    <div class="info">{{ seller.email }}</div>
+                </div>
+                {%if seller.phone_number %}
+                    <div class="form-group">
+                        <label>Phone Number:</label>
+                        <div class="info">{{ seller.phone_number }}</div>
+                    </div>
+                {%endif%}
+                {%if seller.city%}
+                    <div class="form-group">
+                        <label> City:</label>
+                        <div class="info">{{ seller.city}}</div>
+                    </div>
+                {%endif%}
+                {%if seller.state%}
+                    <div class="form-group">
+                        <label>State:</label>
+                        <div class="info">{{ seller.state}}</div>
+                    </div>
+                {%endif%}
+                
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+{%endblock%}

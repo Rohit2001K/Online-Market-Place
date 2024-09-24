@@ -52,7 +52,7 @@
                 <button class="button2">Edit This Product</button>
             </a>
             {%else%}
-            <a href="#">
+            <a href="{% url 'seller_profile' iteam.product_id%}">
                 <button class="button1">Seller Profile</button>
             </a>
             <a href="{% url 'send_message' pk=iteam.product_id%}">

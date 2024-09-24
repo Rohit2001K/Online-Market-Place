@@ -8,7 +8,7 @@
 .img-box {
     width: 15vw;
     height: auto;
-    min-height: 70vh;
+    min-height: 50vh;
     background-color: white;
     border-radius: 5px;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
@@ -22,15 +22,12 @@
     margin-top: 10vh;
 }
 
-.img-button {
-    margin-left: 3vw;
-}
-
 .container {
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
     width: 35vw;
-    min-height: 70vh;
-    color: white;
+    height: auto;
+    min-height: 50vh;
+    color: #333; 
     border-radius: 5px;
     background-color: #729762;
     padding: 2vh;
@@ -52,33 +49,12 @@ label {
     margin-right: 1vw;
 }
 
-input[type="text"],
-input[type="email"] {
+.info {
     width: 65%;
     padding: 0.5vw;
     border: 1px solid #cccccc;
     border-radius: 6px;
     box-sizing: border-box;
     font-size: 1rem;
-}
-
-input[type="submit"] {
-    margin-top: 2vh;
-    width: 30vw;
-    padding: 1vw;
-    border: none;
-    border-radius: 6px;
-    background: #eb9f05;
-    color: white;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-input[type="submit"]:hover {
-    background: #ab7201;
-}
-
-.sub-button {
-    margin-bottom: 5vh;
+    background-color: #f9f9f9; /* Slightly different background for info */
 }

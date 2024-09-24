@@ -57,3 +57,21 @@
     color:black;
     display: flex;
 }
+
+.del_msg{
+    text-decoration: None;
+    color:white;
+    padding-top: 1vh;
+    padding-left: 1vw;
+    width: auto;
+    min-width: 5vw;
+    display: flex;
+    background-color: #eb9f05;
+    border-radius: 10px;
+
+}
+
+.del_msg:hover{
+    color: black;
+    background-color: #ab7201;
+}

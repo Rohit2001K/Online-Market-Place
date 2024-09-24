@@ -6,26 +6,54 @@
 
 {%block body%}
     
-    <form method="POST" enctype="multipart/form-data">
-        {%csrf_token%}
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
     <div class="main-box">
         <div class="img-box">
-            <img src="{{user_info.pic.url}}" class="img">
-            <p class="img-button">{{ form.pic}}</p>
+            <img src="{{ user_info.pic.url }}" class="img">
+            <p class="img-button">{{ form.pic }}</p>
         </div>
         
         <div class="container">
             <div class="user-info">
-            <p><b>Username :  {{user_info.username}}</p></b>
-                <p><b>First Name</b> : {{form.first_name}}</p>
-                <p><b>Last Name</b>  : {{form.last_name}}</p>
-                <p> <b>My  Email </b>: {{form.email}}</p>
-               <input type="submit" value="Edit">
-            </form>   
-            <br><br><p>*Username cannot be change</p>
-            
-            </div> 
+                <center><h1>Edit Your Profile</h1></center>
+                <div class="form-group">
+                    <label>Username :</label>
+                    <b>{{ user_info.username }}</b>
+                </div>
+             
+                <div class="form-group">
+                    <label>First Name:</label>
+                    {{ form.first_name }}
+                </div>
+                <div class="form-group">
+                    <label>Last Name:</label>
+                    {{ form.last_name }}
+                </div>
+                <div class="form-group">
+                    <label>Email:</label>
+                    {{ form.email }}
+                </div>
+                <div class="form-group">
+                    <label>Phone Number:</label>
+                    {{ form.phone_number }}
+                </div>
+                <div class="form-group">
+                    <label>City:</label>
+                    {{ form.city }}
+                </div>
+                <div class="form-group">
+                    <label>State:</label>
+                    {{ form.state }}
+                </div>
+                <input type="submit" value="Edit" class="sub-button">
+                <br><br>
+                <p>*Username cannot be changed</p>
+                <p>*Provide as much info as you can</p>
+                <p>*Buyers can see this info</p>
+            </div>
         </div>
     </div>
+</form>
     
 {%endblock%}

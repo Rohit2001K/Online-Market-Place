@@ -61,12 +61,10 @@ def user_logout(request):
 def user_profile(request):
     profile=request.user.profile
     form =edit_user_form(instance=profile)
-
     if request.method=='POST':
         form=edit_user_form(request.POST,request.FILES,instance=profile)
         if form.is_valid():
-            form.save(commit=False)
-            
+            form.save()
             messages.success(request,'Profile Updated')
             return redirect('home')
     context={
@@ -75,6 +73,19 @@ def user_profile(request):
     }
 
     return render(request,'users/user_profile.html',context)
+
+
+#Showing Seller Profile
+@login_required(login_url='login_user')
+def seller_profile(request,pk):
+    product=Product.objects.get(product_id=pk)
+    seller=product.owner
+    content={
+        'seller':seller
+    }
+    return render(request,'users/seller_profile.html',content)
+
+
 
 
 #messages for inbox
@@ -103,6 +114,8 @@ def message_box(request,pk):
     }
     return render(request,'users/message.html',content)
 
+
+#sending mesages
 @login_required(login_url='login_user')
 def send_message(request,pk):
     reciver_product=Product.objects.get(product_id=pk)
@@ -124,3 +137,34 @@ def send_message(request,pk):
 
     }
     return render(request,'users/message_sending_form.html',content)
+
+
+#Message reply
+@login_required(login_url='login_user')
+def reply_message(request,pk):
+    message_id=inbox_messages.objects.get(id=pk)
+    form=SendMessage() 
+    if request.method=='POST':
+        form=SendMessage(request.POST)
+        if form.is_valid():
+            form_save=form.save(commit=False)
+            form_save.sender=request.user.profile
+            form_save.reciver=message_id.sender
+            form_save.product=message_id.product
+            form_save.email=request.user.profile.email
+            form_save.save()
+            messages.success(request,'Message Send!')
+            return redirect('home')
+    content={
+        'form':form
+
+    }
+    return render(request,'users/message_sending_form.html',content)
+
+
+#message delete
+@login_required(login_url='login_user')
+def message_del(request,pk):
+    message=inbox_messages.objects.get(id=pk)
+    message.delete()
+    return redirect('inbox')

@@ -54,7 +54,10 @@ class edit_user_form(ModelForm):
             'first_name',
             'last_name',
             'email',
-            'pic'
+            'pic',
+            'phone_number',
+            'city',
+            'state',
         ]
 
 

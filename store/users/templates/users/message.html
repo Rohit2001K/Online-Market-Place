@@ -21,8 +21,8 @@
         <div class="message-body">{{msg.body}}</div>
         
         <div class="message-body">
-            <button class="buttons"><a href="#" class="button-link">Reply</a></button>
-            <button class="buttons"><a href="#" class="button-link">View Sender Profile</a></button>
+            <button class="buttons"><a href="{% url 'reply_message' msg.id%}"" class="button-link">Reply</a></button>
+            
         </div>
         
     </div>
