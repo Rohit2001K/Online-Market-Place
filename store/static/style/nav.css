@@ -119,3 +119,17 @@ body {
 }
 
 
+.footer-container{
+    display: flex;
+    justify-content: baseline;
+    margin-top: 10vh;
+    height: auto;
+    min-height: 20vh;
+    background-color: #729762;
+    width: 100%;
+}
+.footer-ul{
+    list-style: None;
+    padding-left: 20vw;
+    font-size: 2.5vh;
+}
