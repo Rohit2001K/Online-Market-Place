@@ -11,18 +11,21 @@ from market.models import Product
 
 #user creation
 def add_user(request):
-    form=User_creation()
-    if request.method=='POST':
-        form=User_creation(request.POST)
+    form = User_creation()
+    if request.method == 'POST':
+        form = User_creation(request.POST)
         if form.is_valid():
-            user=form.save(commit=False)
-            user.username=user.username.lower()
+            user = form.save(commit=False)
+            user.username = user.username.lower()
             user.save()
-            login(request,user)
-            messages.success(request,'User created, Welcome')
+            login(request, user) 
+            messages.success(request, 'User created, Welcome')
             return redirect('home')
-    return render(request,'users/signup.html',{'form':form})
-
+        else:
+            for field in form:
+                for error in field.errors:
+                    messages.error(request, error)
+    return render(request, 'users/signup.html', {'form': form})
 
 
 #User Login

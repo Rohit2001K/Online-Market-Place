@@ -15,6 +15,13 @@
 </style>
 </head>
 <body>
+    {% if messages %}
+        <div class="messages show"> 
+            {% for message in messages %}
+                <p class="message {{ message.tags }}">{{ message }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
     <div class="main-container">
         <div class="image-container">
             <img src="{% static 'img/default/logo.png' %}" alt="Logo">
@@ -34,5 +41,5 @@
             </div>
         </div>
     </div>
+    <script src="{% static 'style/msg.js' %}"></script>
 </body>
-</html>
