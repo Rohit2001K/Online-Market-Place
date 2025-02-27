@@ -133,7 +133,7 @@ def send_message(request,pk):
             form_save.product=reciver_product
             form_save.email=sender_user.email
             form_save.save()
-            messages.success(request,'Message Send!')
+            messages.success(request,'Message Sent!')
             return redirect('home')
     content={
         'form':form
@@ -156,7 +156,7 @@ def reply_message(request,pk):
             form_save.product=message_id.product
             form_save.email=request.user.profile.email
             form_save.save()
-            messages.success(request,'Message Send!')
+            messages.success(request,'Message Sent!')
             return redirect('home')
     content={
         'form':form
